@@ -1,0 +1,16 @@
+﻿@page "/profile"
+<h3>Profile</h3>
+
+<img src="@studentPhoto" alt="@studentName" />
+<p>Hi my name is @studentName. I am currently studying @courseName. I am currently in batch @batchYear.</p>
+
+
+@code {
+    public string studentPhoto = "/images/balaram.png";
+    public string studentName = "Balaram";
+ 
+    public string courseName = "AI";
+    public int batchYear = 2025;
+
+
+}   
