@@ -1,0 +1,62 @@
+﻿@page "/monkeys"
+
+<h3>Monkeys</h3>
+
+<hr />
+
+@if (monkeys == null || monkeys.Count == 0)
+{
+    <p>No monkeys found.</p>
+}
+else
+{
+    <div>
+        @foreach (var monkey in monkeys)
+        {
+            <div>
+                <h4>@monkey.Name</h4>
+                <p><strong>Location:</strong> @monkey.Location</p>
+
+                @if (!string.IsNullOrWhiteSpace(monkey.Image))
+                {
+                    <img src="@monkey.Image" alt="@monkey.Name" width="100" />
+                    
+                }
+
+
+                else
+                {
+                    <p>(No image available)</p>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    public class Monkey
+    {
+        public string Name { get; set; }
+        public string Location { get; set; }
+        public string Image { get; set; }
+    }
+
+    List<Monkey> monkeys = new()
+    {
+        new Monkey {
+            Name = "Baboon",
+            Location = "Africa & Asia",
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/baboon.jpg"
+        },
+        new Monkey {
+            Name = "Capuchin Monkey",
+            Location = "Central & South America",
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/capuchin.jpg"
+        },
+        new Monkey {
+            Name = "Blue Monkey",
+            Location = "Central and East Africa",
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/bluemonkey.jpg"
+        }
+    };
+}
